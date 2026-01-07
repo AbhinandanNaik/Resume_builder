@@ -8,7 +8,7 @@
         Download,
         Menu,
     } from "lucide-svelte";
-    import { uiStore } from "$lib/stores/ui.svelte";
+    import { uiStore } from "$lib/stores/ui.svelte.ts";
 
     let { children } = $props();
 
