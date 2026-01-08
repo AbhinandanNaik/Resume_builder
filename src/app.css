@@ -9,3 +9,45 @@ body {
   background-color: #0f172a;
   color: #ffffff;
 }
+@media print {
+  @page {
+    margin: 0;
+    size: auto;
+  }
+
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  /* Hide everything by default */
+  body > * {
+    display: none !important;
+  }
+
+  /* Only show the resume preview container and its children */
+  body > div:has(#resume-preview),
+  #resume-preview,
+  #resume-preview * {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  /* Ensure resume preview takes up full width/height */
+  body > div:has(#resume-preview) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+
+  /* Flex fixes for print */
+  #resume-preview {
+    display: flex !important;
+    flex-direction: column;
+  }
+}
