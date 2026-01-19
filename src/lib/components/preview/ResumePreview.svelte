@@ -1,5 +1,6 @@
 <script lang="ts">
     import { resumeStore } from "$lib/stores/resume.svelte";
+    import { formatDate } from "$lib/utils/date";
 </script>
 
 <div
@@ -76,9 +77,9 @@
                                 <span
                                     class="text-sm text-slate-500 whitespace-nowrap"
                                 >
-                                    {exp.startDate} – {exp.current
+                                    {formatDate(exp.startDate)} – {exp.current
                                         ? "Present"
-                                        : exp.endDate}
+                                        : formatDate(exp.endDate)}
                                 </span>
                             </div>
                             <div class="text-slate-600 font-medium mb-2">
@@ -116,7 +117,9 @@
                                 <span
                                     class="text-sm text-slate-500 whitespace-nowrap"
                                 >
-                                    {edu.startDate} – {edu.endDate}
+                                    {formatDate(edu.startDate)} – {formatDate(
+                                        edu.endDate,
+                                    )}
                                 </span>
                             </div>
                             <div class="text-slate-600 text-sm">

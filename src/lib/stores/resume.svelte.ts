@@ -91,7 +91,30 @@ const defaultResume: ResumeData = {
 };
 
 // Global state
-export const resumeStore = $state<ResumeData>(defaultResume);
+let savedResume = defaultResume;
+
+if (typeof localStorage !== 'undefined') {
+    const stored = localStorage.getItem('resume_data');
+    if (stored) {
+        try {
+            savedResume = JSON.parse(stored);
+        } catch (e) {
+            console.error("Failed to parse resume data", e);
+        }
+    }
+}
+
+export const resumeStore = $state<ResumeData>(savedResume);
+
+// Effect to save to localStorage whenever state changes
+$effect.root(() => {
+    $effect(() => {
+        // This will run whenever any property of resumeStore changes
+        if (typeof localStorage !== 'undefined') {
+            localStorage.setItem('resume_data', JSON.stringify(resumeStore));
+        }
+    });
+});
 
 export function addExperience() {
     resumeStore.experience.push({

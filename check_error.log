@@ -1,0 +1,21 @@
+
+> resume-builder@0.0.1 check
+> svelte-kit sync && svelte-check --tsconfig ./tsconfig.json
+
+Loading svelte-check in workspace: e:\Projects\Resume_builder
+Getting Svelte diagnostics...
+
+e:\Projects\Resume_builder\[32msrc\routes\app\+layout.svelte[39m:11:29
+[31mError[39m: This import uses a '.ts' extension to resolve to an input TypeScript file, but will not be rewritten during emit because it is not a relative path. (ts)
+[36m    } from "lucide-svelte";
+    import { uiStore } from [35m"$lib/stores/ui.svelte.ts"[36m;[39m
+
+e:\Projects\Resume_builder\[32msrc\routes\app\+page.svelte[39m:9:29
+[31mError[39m: This import uses a '.ts' extension to resolve to an input TypeScript file, but will not be rewritten during emit because it is not a relative path. (ts)
+[36m    } from "$lib/components/editor";
+    import { uiStore } from [35m"$lib/stores/ui.svelte.ts"[36m;
+    import { exportToPdf } from "$lib/utils/pdf";[39m
+
+====================================
+[31msvelte-check found 2 errors and 0 warnings in 2 files
+[39m

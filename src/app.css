@@ -20,34 +20,24 @@ body {
     color: black;
   }
 
-  /* Hide everything by default */
-  body > * {
-    display: none !important;
+  /* Visibility technique to hide everything but the resume */
+  body {
+    visibility: hidden;
   }
 
-  /* Only show the resume preview container and its children */
-  body > div:has(#resume-preview),
+  /* Targeted visibility for the resume container */
   #resume-preview,
   #resume-preview * {
-    display: block !important;
-    visibility: visible !important;
+    visibility: visible;
   }
 
-  /* Ensure resume preview takes up full width/height */
-  body > div:has(#resume-preview) {
+  /* Position the resume at the top-left */
+  #resume-preview {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
     margin: 0;
     padding: 0;
-    background: white;
-  }
-
-  /* Flex fixes for print */
-  #resume-preview {
-    display: flex !important;
-    flex-direction: column;
   }
 }

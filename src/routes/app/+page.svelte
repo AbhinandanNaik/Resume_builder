@@ -6,7 +6,7 @@
         EducationForm,
         SkillsForm,
     } from "$lib/components/editor";
-    import { uiStore } from "$lib/stores/ui.svelte.ts";
+    import { uiStore } from "$lib/stores/ui.svelte";
     import { exportToPdf } from "$lib/utils/pdf";
 
     $effect(() => {
